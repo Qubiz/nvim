@@ -5,11 +5,11 @@ vim.g.sonokai_better_performance = 1
 
 local colorscheme = "sonokai"
 
-require("lualine").setup {
-    options = {
-        theme = "sonokai"
-    }
-}
+require("lualine").setup({
+	options = {
+		theme = "sonokai",
+	},
+})
 
 local status, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status then

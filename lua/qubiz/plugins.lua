@@ -1,17 +1,17 @@
 local fn = vim.fn
 
 -- Automatically install packer
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
-	  'git', 
-	  'clone', 
-	  '--depth', 
-	  '1', 
-	  'https://github.com/wbthomason/packer.nvim', 
-	  install_path,
-  })
-  vim.cmd [[packadd packer.nvim]]
+	PACKER_BOOTSTRAP = fn.system({
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	})
+	vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -25,7 +25,7 @@ vim.cmd([[
 -- Use a protected call so we don't error out on first use
 local status, packer = pcall(require, "packer")
 if not status then
-  return
+	return
 end
 
 -- Have packer use a popup window
@@ -38,20 +38,35 @@ packer.init({
 })
 
 return packer.startup(function(use)
-  -- Base
-  use({"wbthomason/packer.nvim"})
-  use({"nvim-lua/plenary.nvim"})
-  use({"kyazdani42/nvim-tree.lua"})
-  use({"kyazdani42/nvim-web-devicons"})
-  use({"nvim-lualine/lualine.nvim"})
-  use({"jose-elias-alvarez/null-ls.nvim"})
-  
-  -- Theme
-  use({"sainnhe/sonokai"})
-  
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require('packer').sync()
-  end
+	-- Base
+	use({ "wbthomason/packer.nvim" }) -- Package manager
+	use({ "nvim-lua/plenary.nvim" }) -- Required by a lot of plugins
+	use({ "kyazdani42/nvim-tree.lua" }) -- File tree explorer
+	use({ "kyazdani42/nvim-web-devicons" }) -- Fancy icons
+	use({ "nvim-lualine/lualine.nvim" }) -- Statusline
+	use({ "sbdchd/neoformat" }) -- Formatter
+
+	-- LSP
+	use({ "neovim/nvim-lspconfig" }) -- Configurations for Nvim LSP
+	use({ "glepnir/lspsaga.nvim" })
+	use({ "jose-elias-alvarez/null-ls.nvim" })
+
+	-- Telescope
+	use({ "nvim-telescope/telescope.nvim" })
+
+	-- Treesitter
+	use("nvim-treesitter/nvim-treesitter", {
+		run = ":TSUpdate",
+	})
+	use("nvim-treesitter/nvim-treesitter-textobjects")
+	use("nvim-treesitter/nvim-treesitter-context")
+
+	-- Theme
+	use({ "sainnhe/sonokai" })
+
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)
