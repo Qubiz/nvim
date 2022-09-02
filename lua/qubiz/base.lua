@@ -28,7 +28,7 @@ vim.opt.updatetime = 50
 
 vim.opt.shortmess:append("c") -- Don't pass messages to |ins-completion-menu|.
 
-vim.opt.hlsearch = true -- highlight all matches on previous search pattern
+vim.opt.hlsearch = true -- Highlight all matches on previous search pattern
 
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {

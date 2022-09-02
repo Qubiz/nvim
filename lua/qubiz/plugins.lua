@@ -40,10 +40,12 @@ packer.init({
 return packer.startup(function(use)
   -- Base
   use({"wbthomason/packer.nvim"})
+  use({"nvim-lua/plenary.nvim"})
   use({"kyazdani42/nvim-tree.lua"})
   use({"kyazdani42/nvim-web-devicons"})
-  use({"vim-airline/vim-airline"})
-
+  use({"nvim-lualine/lualine.nvim"})
+  use({"jose-elias-alvarez/null-ls.nvim"})
+  
   -- Theme
   use({"sainnhe/sonokai"})
   
