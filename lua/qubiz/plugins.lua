@@ -45,7 +45,7 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-web-devicons" }) -- Fancy icons
 	use({ "nvim-lualine/lualine.nvim" }) -- Statusline
 	use({ "sbdchd/neoformat" }) -- Formatter
-
+    use({ "akinsho/toggleterm.nvim" })
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- Configurations for Nvim LSP
 	use({ "glepnir/lspsaga.nvim" })

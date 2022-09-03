@@ -36,3 +36,29 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 		vim.highlight.on_yank({ higroup = "Visual", timeout = 200 })
 	end,
 })
+
+-- Windows specific settings
+-- if vim.fn.has('win32') == 1 then
+--  if vim.fn.executable('pwsh') == 0 then
+--    print('[nvim] PowerShell Core >= v6 is required on Windows!')
+--
+--    return
+--  end
+--
+--  local pwsh_flags = {
+--    '-NoLogo',
+--    '-NoProfile',
+--    '-ExecutionPolicy',
+--    'RemoteSigned',
+--   '-Command',
+--    '[Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;',
+--  }
+--
+--  vim.opt.shellcmdflag = table.concat(pwsh_flags, ' ')
+--  vim.opt.shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+--  vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
+--  vim.opt.shell = 'pwsh'
+--  vim.opt.shellquote = ''
+--  vim.opt.shellxquote = ''
+-- end
+
