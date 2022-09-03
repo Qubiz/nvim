@@ -47,6 +47,7 @@ return packer.startup(function(use)
 	use({ "sbdchd/neoformat" }) -- Formatter
 	use({ "windwp/nvim-autopairs" })
 	use({ "ahmedkhalf/project.nvim" })
+	use({ "numToStr/Comment.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -72,6 +73,10 @@ return packer.startup(function(use)
 	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("nvim-treesitter/nvim-treesitter-context")
+
+	-- Rust
+	use({ "simrat39/rust-tools.nvim" })
+	use({ "mfussenegger/nvim-dap" })
 
 	-- Theme
 	use({ "sainnhe/sonokai" })

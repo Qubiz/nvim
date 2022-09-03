@@ -8,6 +8,7 @@
 
 local g = vim.g -- Global variables
 local opt = vim.opt -- Set options (global/buffer/windows-scoped)
+local fn = vim.fn -- Functions
 
 -----------------------------------------------------------
 -- General
@@ -51,6 +52,35 @@ opt.lazyredraw = true -- Faster scrolling
 opt.synmaxcol = 240 -- Max column for syntax highlight
 opt.updatetime = 700 -- ms to wait for trigger an event
 
+-----------------------------------------------------------
+-- Shell
+-----------------------------------------------------------
+-- Windows specific settings
+--[[ This is currently disabled, because this creates some issues with the file watcher used by nvim-tree...
+if fn.has("win32") == 1 then
+	if fn.executable("pwsh") == 0 then
+		print("[nvim] PowerShell Core >= v6 is required on Windows!")
+
+		return
+	end
+
+	local pwsh_flags = {
+		"-NoLogo",
+		"-NoProfile",
+		"-ExecutionPolicy",
+		"RemoteSigned",
+		"-Command",
+		"[Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;",
+	}
+
+	opt.shellcmdflag = table.concat(pwsh_flags, " ")
+	opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	opt.shell = "pwsh"
+	opt.shellquote = ""
+	opt.shellxquote = ""
+end
+]]
 -----------------------------------------------------------
 -- Startup
 -----------------------------------------------------------
