@@ -61,4 +61,3 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 --  vim.opt.shellquote = ''
 --  vim.opt.shellxquote = ''
 -- end
-
