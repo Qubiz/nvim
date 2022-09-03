@@ -24,4 +24,7 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("fzf")
+local extensions = { "fzf", "projects" }
+for _, ext in ipairs(extensions) do
+	telescope.load_extension(ext)
+end
