@@ -45,7 +45,17 @@ return packer.startup(function(use)
 	use({ "kyazdani42/nvim-web-devicons" }) -- Fancy icons
 	use({ "nvim-lualine/lualine.nvim" }) -- Statusline
 	use({ "sbdchd/neoformat" }) -- Formatter
-	use({ "akinsho/toggleterm.nvim" })
+	use({ "windwp/nvim-autopairs" })
+	use({ "ahmedkhalf/project.nvim" })
+
+	-- cmp plugins
+	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
+	use({ "hrsh7th/cmp-buffer" }) -- buffer completions
+	use({ "hrsh7th/cmp-path" }) -- path completions
+	use({ "hrsh7th/cmp-nvim-lsp" })
+	use({ "hrsh7th/cmp-nvim-lua" })
+	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
+
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- Configurations for Nvim LSP
 	use({ "glepnir/lspsaga.nvim" })
@@ -59,9 +69,7 @@ return packer.startup(function(use)
 	})
 
 	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter", {
-		run = ":TSUpdate",
-	})
+	use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
 	use("nvim-treesitter/nvim-treesitter-textobjects")
 	use("nvim-treesitter/nvim-treesitter-context")
 
