@@ -9,11 +9,13 @@ local cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
 	return
 end
+---@cast cmp -?
 
 local luasnip_status_ok, luasnip = pcall(require, "luasnip")
 if not luasnip_status_ok then
 	return
 end
+---@cast luasnip -?
 
 cmp.setup({
 	-- Load snippet support
