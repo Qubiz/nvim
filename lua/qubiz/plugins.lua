@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	use({ "windwp/nvim-autopairs" })
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "numToStr/Comment.nvim" })
+	use({ "goolord/alpha-nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -56,6 +57,9 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
 	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
+
+	-- Snippets
+	use({ "L3MON4D3/LuaSnip" })
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig" }) -- Configurations for Nvim LSP
