@@ -1,4 +1,5 @@
 require("qubiz.options")
 require("qubiz.keymaps")
 require("qubiz.theme")
+require("qubiz.filetypes")
 require("qubiz.plugins")

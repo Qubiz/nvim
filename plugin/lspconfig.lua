@@ -9,11 +9,13 @@
 -- Autocompletion settings of "nvim-cmp" are defined in plugins/nvim-cmp.lua
 local lsp_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lsp_status_ok then
+	vim.notify(lspconfig, vim.log.levels.ERROR)
 	return
 end
 
 local cmp_status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_status_ok then
+	vim.notify(cmp_nvim_lsp, vim.log.levels.ERROR)
 	return
 end
 
@@ -155,3 +157,15 @@ lspconfig.sumneko_lua.setup({
 		},
 	},
 })
+
+lspconfig.tsserver.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.svelte.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.tailwindcss.setup({})

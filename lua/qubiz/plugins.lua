@@ -49,6 +49,7 @@ return packer.startup(function(use)
 	use({ "ahmedkhalf/project.nvim" })
 	use({ "numToStr/Comment.nvim" })
 	use({ "goolord/alpha-nvim" })
+	use({ "williamboman/mason.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -65,6 +66,7 @@ return packer.startup(function(use)
 	use({ "neovim/nvim-lspconfig" }) -- Configurations for Nvim LSP
 	use({ "glepnir/lspsaga.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })

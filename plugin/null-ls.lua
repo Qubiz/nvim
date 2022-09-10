@@ -11,9 +11,9 @@ local augroup = vim.api.nvim_create_augroup("Format", { clear = true })
 null_ls.setup({
 	sources = {
 		formatting.stylua,
-		formatting.prettierd,
-		diagnostics.eslint_d,
-		code_actions.eslint_d,
+		formatting.prettier,
+		-- diagnostics.eslint,
+		-- code_actions.eslint,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
