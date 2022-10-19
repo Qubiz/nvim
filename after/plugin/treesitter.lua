@@ -6,6 +6,7 @@ end
 treesitter.setup({
 	-- A list of parser names, or "all"
 	ensure_installed = {
+		"astro",
 		"c",
 		"comment",
 		"cpp",
@@ -27,9 +28,10 @@ treesitter.setup({
 		"svelte",
 		"tsx",
 		"typescript",
+		"yaml",
 	},
 
-	autotag = { enale = true },
+	autotag = { enable = true },
 
 	highlight = {
 		-- `false` will disable the whole extension
@@ -47,7 +49,7 @@ treesitter.setup({
 	sync_install = false,
 
 	-- Automatically install missing parsers when entering buffer
-	auto_install = true,
+	auto_install = false,
 })
 
 local treesitter_install_status, treesitter_install = pcall(require, "nvim-treesitter.install")
