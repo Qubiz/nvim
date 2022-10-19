@@ -64,11 +64,44 @@ cmp.setup({
 		end,
 	},
 
+	-- Window styling
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+
 	-- Load sources, see: https://github.com/topics/nvim-cmp
 	sources = {
-		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
+		-- source current buffer
+		{ name = "buffer", keyword_length = 2 },
+
+		-- file paths
 		{ name = "path" },
-		{ name = "buffer" },
+
+		-- from language server
+		{ name = "nvim_lsp", keyword_length = 3 },
+
+		-- display function signatures with current parameter emphasized
+		{ name = "nvim_lsp_signature_help" },
+
+		-- complete neovim's Lua runtime API such vim.lsp.
+		{ name = "nvim_lua", keyword_length = 2 },
+
+		--
+		{ name = "luasnip" },
+	},
+
+	formatting = {
+		fields = { "menu", "abbr", "kind" },
+		format = function(entry, item)
+			local menu_icon = {
+				nvim_lsp = "λ",
+				vsnip = "⋗",
+				buffer = "Ω",
+				path = "🖫",
+			}
+			item.menu = menu_icon[entry.source.name]
+			return item
+		end,
 	},
 })

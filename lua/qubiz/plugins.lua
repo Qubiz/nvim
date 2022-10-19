@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	use({ "numToStr/Comment.nvim" })
 	use({ "goolord/alpha-nvim" })
 	use({ "williamboman/mason.nvim" })
+	use({ "lukas-reineke/indent-blankline.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -83,7 +84,7 @@ return packer.startup(function(use)
 	-- Rust
 	use({ "simrat39/rust-tools.nvim" })
 	use({ "mfussenegger/nvim-dap" })
-
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 	-- Theme
 	use({ "sainnhe/sonokai" })
 

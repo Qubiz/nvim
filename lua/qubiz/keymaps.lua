@@ -4,6 +4,9 @@ local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
 
+local dap = require("dap")
+local dapui = require("dapui")
+
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
@@ -41,3 +44,35 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Format
 keymap("n", "<leader>fmt", ":Neoformat<CR>", opts)
+
+-- Debugger
+keymap("n", "<Home>", function()
+	dapui.open({})
+end)
+keymap("n", "<End>", function()
+	dapui.close({})
+end)
+keymap("n", "<leader>b", function()
+	dap.toggle_breakpoint()
+end)
+keymap("n", "<leader>B", function()
+	dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
+keymap("n", "<F9>", function()
+	dap.continue()
+end)
+keymap("n", "<Up>", function()
+	dap.continue()
+end)
+keymap("n", "<Down>", function()
+	dap.step_over()
+end)
+keymap("n", "<Right>", function()
+	dap.step_into()
+end)
+keymap("n", "<Left>", function()
+	dap.step_out()
+end)
+keymap("n", "<leader>rc", function()
+	dap.run_to_cursor()
+end)
